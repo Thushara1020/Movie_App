@@ -1,305 +1,230 @@
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-    <title>Movie Design</title>
+    <title>🎥 T MOVIE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="asset/css/style.css">
+    <style>
+        .glass {
+            background: rgba(40, 40, 60, 0.7);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
+            border-radius: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+        .section-title {
+            background: linear-gradient(90deg, #ff3c7e 0%, #f9d423 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+        .nav-link:hover {
+            color: #ff3c7e !important;
+            transform: scale(1.08);
+        }
+        .btn-grad {
+            background: linear-gradient(90deg, #ff3c7e 0%, #f9d423 100%);
+            color: #fff;
+            box-shadow: 0 0 12px #ff3c7e88;
+        }
+        .btn-grad:hover {
+            background: linear-gradient(90deg, #f9d423 0%, #ff3c7e 100%);
+            color: #222;
+        }
+        .card:hover {
+            transform: scale(1.04) translateY(-6px);
+            box-shadow: 0 12px 40px 0 #ff3c7e55;
+        }
+        .fade-in {
+            animation: fadeIn 1.2s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        ::-webkit-scrollbar { width: 8px; background: #222; }
+        ::-webkit-scrollbar-thumb { background: #ff3c7e; border-radius: 8px; }
+    </style>
 </head>
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white min-h-screen">
 
-<body>
-    <div class="navbar">
-        <div class="navbar-container">
-            <div class="logo-container">
-                <h1 class="logo">Movie's</h1>
+    <!-- Navbar -->
+    <nav class="glass fixed w-full top-0 left-0 z-50 py-4">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <div class="flex items-center space-x-3">
+                <i class="fas fa-film text-3xl text-pink-400 animate-pulse"></i>
+                <span class="text-2xl font-extrabold section-title">🎥 T Movie</span>
             </div>
-            <div class="menu-container">
-                <ul class="menu-list">
-                    <li class="menu-list-item active">Home</li>
-                    <li class="menu-list-item">Movies</li>
-                    <li class="menu-list-item">Series</li>
-                    <li class="menu-list-item">Popular</li>
-                    <li class="menu-list-item">Trends</li>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-gray-200 font-semibold transition-all">Home</a>
+                <a href="#search" class="nav-link text-gray-200 font-semibold transition-all">Search</a>
+                <a href="#discover" class="nav-link text-gray-200 font-semibold transition-all">Discover</a>
+                <a href="#top-rated" class="nav-link text-gray-200 font-semibold transition-all">Top Rated</a>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-pink-400 text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden px-4 pt-2">
+            <a href="#home" class="block py-2 text-gray-200 nav-link">Home</a>
+            <a href="#search" class="block py-2 text-gray-200 nav-link">Search</a>
+            <a href="#discover" class="block py-2 text-gray-200 nav-link">Discover</a>
+            <a href="#top-rated" class="block py-2 text-gray-200 nav-link">Top Rated</a>
+        </div>
+    </nav>
 
-                </ul>
-            </div>
-            <div class="profile-container">
-                <img class="profile-picture" src="/assets/img/profile-square-3.jpg" alt="">
-                <div class="profile-text-container">
-                    <span class="profile-text">Profile</span>
-                    <i class="fas fa-caret-down"></i>
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-24 flex flex-col md:flex-row items-center justify-center min-h-[70vh] relative">
+        <div class="absolute inset-0 bg-gradient-to-br from-[#1a1a2e] via-[#ff3c7e33] to-[#f9d42333] opacity-70"></div>
+        <div class="container mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 text-center md:text-left fade-in">
+                <h1 class="text-6xl md:text-8xl font-extrabold mb-8 section-title">Discover Your Movie</h1>
+                <p class="text-xl md:text-2xl mb-10 text-gray-200 max-w-2xl mx-auto md:mx-0">
+                    Search movies.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center md:justify-start">
+                    <button id="hero-search-btn" class="btn-grad px-10 py-4 rounded-xl font-bold text-lg transition-all fade-in">
+                        <i class="fas fa-search mr-2"></i>Start Searching
+                    </button>
+                    <button id="hero-discover-btn" class="btn-grad px-10 py-4 rounded-xl font-bold text-lg transition-all fade-in">
+                        <i class="fas fa-random mr-2"></i>
+                    </button>
                 </div>
-                <div class="toggle">
-                    <i class="fas fa-moon toggle-icon"></i>
-                    <i class="fas fa-sun toggle-icon"></i>
-                    <div class="toggle-ball"></div>
+            </div>
+            <div class="md:w-1/2 flex justify-center mt-12 md:mt-0 fade-in">
+                <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Movie Night" class="rounded-3xl shadow-2xl w-full max-w-md">
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section id="search" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-5xl font-extrabold text-center mb-14 section-title fade-in">Search Movies</h2>
+            <div class="max-w-3xl mx-auto space-y-10">
+                <div class="glass p-8 card fade-in">
+                    <h3 class="text-2xl font-semibold mb-6 flex items-center">
+                        <i class="fas fa-search text-pink-400 mr-3"></i>Search by Title
+                    </h3>
+                    <div class="flex gap-4">
+                        <input type="text" id="title-search" placeholder="Enter movie title..." class="flex-1 px-5 py-4 bg-[#222] rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-400 text-lg text-white">
+                        <button id="title-search-btn" class="btn-grad px-8 py-4 rounded-xl font-bold">Search</button>
+                    </div>
+                </div>
+                <div class="glass p-8 card fade-in">
+                    <h3 class="text-2xl font-semibold mb-6 flex items-center">
+                        <i class="fas fa-tags text-yellow-400 mr-3"></i>Search by Keyword
+                    </h3>
+                    <div class="flex gap-4">
+                        <input type="text" id="keyword-search" placeholder="Enter keywords (e.g., batman, love, war)..." class="flex-1 px-5 py-4 bg-[#222] rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400 text-lg text-white">
+                        <button id="keyword-search-btn" class="btn-grad px-8 py-4 rounded-xl font-bold">Search</button>
+                    </div>
+                </div>
+                <div class="glass p-8 card fade-in">
+                    <h3 class="text-2xl font-semibold mb-6 flex items-center">
+                        <i class="fas fa-id-card text-blue-400 mr-3"></i>Search by IMDb ID
+                    </h3>
+                    <div class="flex gap-4">
+                        <input type="text" id="imdb-search" placeholder="Enter IMDb ID (e.g., tt0111161)..." class="flex-1 px-5 py-4 bg-[#222] rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 text-lg text-white">
+                        <button id="imdb-search-btn" class="btn-grad px-8 py-4 rounded-xl font-bold">Search</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="sidebar">
-        <i class="left-menu-icon fas fa-search"></i>
-        <i class="left-menu-icon fas fa-home"></i>
-        <i class="left-menu-icon fas fa-users"></i>
-        <i class="left-menu-icon fas fa-bookmark"></i>
-        <i class="left-menu-icon fas fa-tv"></i>
-        <i class="left-menu-icon fas fa-hourglass-start"></i>
-        <i class="left-menu-icon fas fa-shopping-cart"></i>
-    </div>
-    <div class="container">
-        <div class="content-container">
-            <div class="featured-content"
-                style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('/assets/img/1.jpeg');">
-                <img class="featured-title" src="/assets/img/f-t-1.png" alt="">
-                <p class="featured-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto illo dolor
-                    deserunt nam assumenda ipsa eligendi dolore, ipsum id fugiat quo enim impedit, laboriosam omnis
-                    minima voluptatibus incidunt. Accusamus, provident.</p>
-                <button class="featured-button">WATCH</button>
+    </section>
+
+    <!-- Discover Section -->
+    <section id="discover" class="py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-5xl font-extrabold mb-10 section-title fade-in">Discover Movies</h2>
+            <p class="text-2xl text-gray-200 mb-10 max-w-2xl mx-auto fade-in">
+                Not sure what to watch? Let us surprise you with a random movie recommendation!
+            </p>
+            <button id="discover-btn" class="btn-grad px-14 py-6 rounded-2xl font-bold text-2xl transition-all fade-in">
+                <i class="fas fa-magic mr-2"></i>Discover a Movie
+            </button>
+        </div>
+    </section>
+
+    <!-- Top Rated Section -->
+    <section id="top-rated" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-5xl font-extrabold text-center mb-14 section-title fade-in">Top Rated Movies</h2>
+            <div id="top-rated-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Cards will appear here -->
             </div>
-            <div class="movie-list-container">
-                <h1 class="movie-list-title">NEW RELEASES</h1>
-                <div class="movie-list-wrapper">
-                    <div class="movie-list">
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/1.jpeg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/2.jpeg" alt="">
-                            <span class="movie-list-item-title">Star Wars</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/3.jpg" alt="">
-                            <span class="movie-list-item-title">Storm</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/4.jpg" alt="">
-                            <span class="movie-list-item-title">1917</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/5.jpg" alt="">
-                            <span class="movie-list-item-title">Avengers</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/6.jpg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/7.jpg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                    </div>
-                    <i class="fas fa-chevron-right arrow"></i>
-                </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results-section" class="py-20 hidden">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-10">
+                <h2 id="results-title" class="text-4xl font-extrabold section-title">Search Results</h2>
+                <button id="clear-results" class="text-gray-400 hover:text-pink-400 text-xl font-bold">
+                    <i class="fas fa-times mr-2"></i>Clear Results
+                </button>
             </div>
-            <div class="movie-list-container">
-                <h1 class="movie-list-title">NEW RELEASES</h1>
-                <div class="movie-list-wrapper">
-                    <div class="movie-list">
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/8.jpg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/9.jpg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/10.jpg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/11.jpg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/12.jpg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/1.jpeg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/1.jpeg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                    </div>
-                    <i class="fas fa-chevron-right arrow"></i>
-                </div>
+            <div id="results-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Results will appear here -->
             </div>
-            <div class="featured-content"
-                style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('/assets/img/f-2.jpg');">
-                <img class="featured-title" src="/assets/img/f-t-2.png" alt="">
-                <p class="featured-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto illo dolor
-                    deserunt nam assumenda ipsa eligendi dolore, ipsum id fugiat quo enim impedit, laboriosam omnis
-                    minima voluptatibus incidunt. Accusamus, provident.</p>
-                <button class="featured-button">WATCH</button>
+            <div id="load-more-container" class="text-center mt-10 hidden">
+                <button id="load-more-btn" class="btn-grad px-8 py-4 rounded-xl font-bold">
+                    Load More Results
+                </button>
             </div>
-            <div class="movie-list-container">
-                <h1 class="movie-list-title">NEW RELEASES</h1>
-                <div class="movie-list-wrapper">
-                    <div class="movie-list">
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/1.jpeg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/2.jpeg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/15.jpg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/3.jpg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/4.jpg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/5.jpg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/1.jpeg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                    </div>
-                    <i class="fas fa-chevron-right arrow"></i>
-                </div>
+        </div>
+    </section>
+
+    <!-- Movie Modal -->
+    <div id="movie-modal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center p-4">
+        <div class="glass max-w-4xl w-full max-h-screen overflow-y-auto">
+            <div class="sticky top-0 bg-gray-800 p-6 border-b border-pink-400 flex justify-between items-center rounded-t-2xl">
+                <h3 class="text-2xl font-bold section-title">Movie Details</h3>
+                <button id="close-modal" class="text-gray-400 hover:text-pink-400 text-3xl">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-            <div class="movie-list-container">
-                <h1 class="movie-list-title">NEW RELEASES</h1>
-                <div class="movie-list-wrapper">
-                    <div class="movie-list">
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/17.jpg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/18.jpg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/19.jpg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/7.jpg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/1.jpeg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/1.jpeg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="/assets/img/1.jpeg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-                    </div>
-                    <i class="fas fa-chevron-right arrow"></i>
-                </div>
+            <div id="movie-details" class="p-8">
+                <!-- Details here -->
             </div>
         </div>
     </div>
-    <script src="/assets/js/app.js"></script>
+
+    <!-- Loading Spinner -->
+    <div id="loading" class="fixed inset-0 bg-black bg-opacity-60 z-40 hidden flex items-center justify-center">
+        <div class="glass p-8 text-center">
+            <div class="spinner mb-6"></div>
+            <p class="text-xl">Loading...</p>
+        </div>
+    </div>
+
+    <!-- Toasts -->
+    <div id="toast-container" class="fixed top-6 right-6 z-50 space-y-3"></div>
+
+    <!-- Footer -->
+    <footer class="glass mt-20 py-8">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                <i class="fas fa-film text-pink-400 text-2xl"></i>
+                <span class="font-bold text-lg section-title">ReelX</span>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#home" class="nav-link text-gray-200 transition">Home</a>
+                <a href="#search" class="nav-link text-gray-200 transition">Search</a>
+                <a href="#discover" class="nav-link text-gray-200 transition">Discover</a>
+                <a href="#top-rated" class="nav-link text-gray-200 transition">Top Rated</a>
+            </div>
+            <div class="text-gray-400 text-sm mt-4 md:mt-0">
+                &copy; 2025 ReelX. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
 </body>
-
 </html>
