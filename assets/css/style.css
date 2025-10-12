@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 * {
@@ -99,7 +98,46 @@ input:focus, button:focus {
     padding: 1rem;
 }
 
-
+.glass {
+            background: rgba(40, 40, 60, 0.7);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
+            border-radius: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+        .section-title {
+            background: linear-gradient(90deg, #ff3c7e 0%, #f9d423 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+        .nav-link:hover {
+            color: #ff3c7e !important;
+            transform: scale(1.08);
+        }
+        .btn-grad {
+            background: linear-gradient(90deg, #ff3c7e 0%, #f9d423 100%);
+            color: #fff;
+            box-shadow: 0 0 12px #ff3c7e88;
+        }
+        .btn-grad:hover {
+            background: linear-gradient(90deg, #f9d423 0%, #ff3c7e 100%);
+            color: #222;
+        }
+        .card:hover {
+            transform: scale(1.04) translateY(-6px);
+            box-shadow: 0 12px 40px 0 #ff3c7e55;
+        }
+        .fade-in {
+            animation: fadeIn 1.2s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        ::-webkit-scrollbar { width: 8px; background: #222; }
+        ::-webkit-scrollbar-thumb { background: #ff3c7e; border-radius: 8px; }
 
 .movie-year {
     color: #9ca3af;
